@@ -1,0 +1,44 @@
+#!csharp
+
+class Language
+{
+    public string Name
+    {
+        get;
+        set;
+    }
+
+    public Language()
+    {
+       Name = "C#";
+    }
+}
+
+Language language = new();
+string cSharpLanguage = language.Name;
+Console.WriteLine($"Hello {language.Name}");
+
+#!fsharp
+type Language =
+    { Name: string }
+    static member Default =
+    { Name = "F#" }
+
+let language = Language.Default
+let fSharpLanguage = language.Name
+printfn "Hello %s" language.Name
+
+#!powershell
+$Language = @{ Name = "PowerShell" }
+$powershellLanguage = $Language.Name
+Write-Host -Object "Hello $($Language.Name)"
+
+#!html
+<h1>Hello <span id="languages"></span> FTW!</h1>
+
+#!javascript
+#!share --from csharp cSharpLanguage
+#!share --from fsharp fSharpLanguage
+#!share --from powershell powershellLanguage
+
+document.getElementById('languages').innerHTML = `${cSharpLanguage}, ${fSharpLanguage}, ${powershellLanguage}`;
